@@ -1,4 +1,4 @@
-package com.emanuelgalvao.authserver.users
+package com.emanuelgalvao.authserver.users.model
 
 import jakarta.validation.constraints.Email
 import jakarta.validation.constraints.NotBlank

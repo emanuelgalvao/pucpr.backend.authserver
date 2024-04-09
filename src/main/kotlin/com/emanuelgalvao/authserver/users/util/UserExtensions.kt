@@ -1,4 +1,8 @@
-package com.emanuelgalvao.authserver.users
+package com.emanuelgalvao.authserver.users.util
+
+import com.emanuelgalvao.authserver.users.model.User
+import com.emanuelgalvao.authserver.users.model.UserRequest
+import com.emanuelgalvao.authserver.users.model.UserResponse
 
 fun UserRequest.toUser(): User = User(
     name = this.name,

@@ -1,16 +1,14 @@
 package com.emanuelgalvao.authserver.users
 
+import com.emanuelgalvao.authserver.users.model.UserRequest
+import com.emanuelgalvao.authserver.users.model.UserResponse
+import com.emanuelgalvao.authserver.users.util.toResponse
+import com.emanuelgalvao.authserver.users.util.toSortDirection
+import com.emanuelgalvao.authserver.users.util.toUser
 import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.DeleteMapping
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestParam
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/users")
@@ -54,5 +52,13 @@ class UserController(
         } else {
             ResponseEntity.notFound().build()
         }
+        }
+
+    @PutMapping("/{id}/roles/{name}")
+    fun addRole(@PathVariable("id") id: Long, @PathVariable("name") name: String): ResponseEntity<Nothing> {
+        return if (userService.addRole(id, name))
+            ResponseEntity.ok().build()
+        else
+            ResponseEntity.noContent().build()
     }
 }

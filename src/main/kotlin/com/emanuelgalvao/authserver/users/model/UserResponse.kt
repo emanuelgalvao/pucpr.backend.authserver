@@ -1,4 +1,4 @@
-package com.emanuelgalvao.authserver.users
+package com.emanuelgalvao.authserver.users.model
 
 data class UserResponse(
     val id: Long,

@@ -1,4 +1,4 @@
-package com.emanuelgalvao.authserver.users
+package com.emanuelgalvao.authserver.users.util
 
 enum class SortDirection {
     ASC,
